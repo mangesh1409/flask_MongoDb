@@ -1,0 +1,52 @@
+<html>
+    <head>
+       <style>
+          table, td,th {
+            border: 1px solid black;
+            border-collapse: collapse;
+          }
+          th, td {
+            padding: 5px;
+            text-align: left;
+          }
+          a:link, a:visited {
+            background-color: #33BAFF;
+            color: white;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+           }
+           a:hover, a:active {
+             background-color: green;
+           }
+           .red:hover{
+               background-color: rgb(202, 37, 37);
+           }
+       </style>
+        <title>Data From Database</title>
+    </head>
+
+    <body>
+      <table style="width:50%">
+        <tr>
+            <th>Name</th>
+            <th>Email ID</th>
+            <th>Phone Number</th>
+        </tr>
+        {%for i in data %}
+        <tr>            
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.phone}}</td>
+            
+           
+            <td><a class="red" href="http://127.0.0.1/delete?id='{{i._id}}'" target="_self">Delete</a>
+                <a class="green" href="http://127.0.0.1/update?id='{{i._id}}'"  target="_self">Edit</a></td>
+        </tr>
+        {%endfor%}
+      </table>
+      <a href="http://127.0.0.1/form" target="_self">Go Back</a>
+    </body>
+</html>
